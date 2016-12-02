@@ -8,32 +8,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
 //@Path("/Registration")
-@Path("/")
+@Path("/Registration")
 public class DhRegistration 
 {
-	// If called via this url http://host:port/dhJavaServices 
-    // we will simply return the index.jsp	
-	@javax.ws.rs.GET
-	public Response getRegistrationRecord() 
-	{
-		Response response = null; 
-		 
-		try 
-		{
-			URI uri = new URI("/index.jsp");
-			response = Response.temporaryRedirect(uri).build();
-		} 
-		catch (URISyntaxException e) 
-		{
-			e.printStackTrace();
-		}
-		 
-		return response;
-	 }
-	 
-     // Add new registration record for the registrationId passed over the HTTP URL
+	 // Add new registration record for the registrationId passed over the HTTP URL
 	 @javax.ws.rs.POST 
-	 @Path("Registration/{cid:[0-9]*}/{aid:[0-9]*}")
+	 @Path("/{cid:[0-9]*}/{aid:[0-9]*}")
 	 public Response updateRegistrationRecord(@PathParam("cid") String cid, @PathParam("aid") String aid) 
 	 {
 		 // get the input parameters
