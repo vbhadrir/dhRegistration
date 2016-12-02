@@ -75,6 +75,7 @@ public class DhRegistration
 
 	 // invokes the dhNotification REST service
 	 // sends a dh-notification  
+/*	
 	 private static final String notificationHostIP   = "10.40.46.194";
 	 private static final String notificationHostName = "notification-dreamhome.ose.cpo.com";
 	 private static final String notificationPort     = "80";	
@@ -82,12 +83,27 @@ public class DhRegistration
 	
 	 // OSE private docker cluster address
 	 private static final String notificationURL      = "http://172.30.18.204:8080/notify"; 
+*/	
+	 // obtains the base url for the registration-dreamhome service
+	 // this registration-dreamhome service calls the notification-dreamhome service
+	 private String getNotificationServiceEndPoint()
+	 {
+	   String endPoint = null;
+	   String host = "172.30.18.204";
+	   String port = "8080";	   
+	   
+           endPoint = "http://" + host + ":" + port + "/notify"; 		   
+		 
+	   return(endPoint);	 
+	 }	 
+	
  	 private Response sendNotification(Integer clientId, Integer agentId)
 	 {
 		 Response res = null;
 		 
 		 try 
 		 {
+			String notificationURL = getNotificationServiceEndPoint(); 
 			String urlName = notificationURL + "?clientId=" + clientId + "&agentId=" + agentId;
 			System.out.println("urlName = " + urlName);
 			
