@@ -81,7 +81,7 @@ public class DhRegistration
 	 //private static final String notificationURL      = "http://" + notificationHostName + ":" + notificationPort + "/notify"; 
 	
 	 // OSE private docker cluster address
-	 private static final String notificationURL      = "http:// 172.30.18.20:8080/notify"; 
+	 private static final String notificationURL      = "http://172.30.18.204:8080/notify"; 
  	 private Response sendNotification(Integer clientId, Integer agentId)
 	 {
 		 Response res = null;
