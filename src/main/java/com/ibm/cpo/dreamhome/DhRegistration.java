@@ -94,7 +94,9 @@ public class DhRegistration
 	 private String getNotificationServiceEndPoint()
 	 {
 	   String endPoint = null;
-	   		
+	   
+	   // README!
+	   // NOTE - NOTE - NOTE - NOTE
 	   // NOTE: This code will need to be altered for different cloud providers
 	   //
 	   // specific code for OpenShift endpoint discovery using env vars	 
