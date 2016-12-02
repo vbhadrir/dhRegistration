@@ -65,6 +65,10 @@ public class DhRegistration
 					}
 				} while (lineRead!=null);
 				
+				// we are done with the connection, close it!
+				conn.disconnect();
+				conn = null;
+				
 				System.out.println("ReplyData = " + replyData );
 				
 				// create the Response object
