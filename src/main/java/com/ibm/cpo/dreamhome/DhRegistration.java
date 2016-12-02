@@ -7,10 +7,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
-import javax.inject.Inject;
-import org.apache.deltaspike.core.api.config.ConfigProperty;
-
-//@Path("/Registration")
 @Path("/Registration")
 public class DhRegistration 
 {
@@ -65,13 +61,15 @@ public class DhRegistration
 	   // specific code for OpenShift endpoint discovery using env vars	 
 	   // read system environment variables to obtain host:port endpoint
 	   // for the notification-dreamhome service
-	   String host = "0.0.0.0";
-	   String port = "8888";
+	   // Default to using the public external endpoint
+	   String host = "notification-dreamhome.ose.cpo.com";
+	   String port = "80";
+	   // try fetching the more efficient internal end point
 	   String varRead = null;
-	   varRead = System.getenv("NOTIFICATION_SERVICE_HOST");
+	   varRead = System.getenv("NOTIFICATION_SERVICE_HOST66");
 	   if(varRead!=null && varRead.length()>0)
 		   host = varRead;
-	   varRead = System.getenv("NOTIFICATION_SERVICE_PORT");	 
+	   varRead = System.getenv("NOTIFICATION_SERVICE_PORT66");	 
 	   if(varRead!=null && varRead.length()>0)
 		   port = varRead;
 	   

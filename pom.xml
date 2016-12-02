@@ -51,14 +51,5 @@
       <artifactId>jaxrs-ri</artifactId>
       <version>2.13</version>
     </dependency>
-    
-   <!-- https://mvnrepository.com/artifact/org.apache.deltaspike.core/deltaspike-core-api -->
-	<dependency>
-    	<groupId>org.apache.deltaspike.core</groupId>
-    	<artifactId>deltaspike-core-api</artifactId>
-    	<version>1.7.2</version>
-	</dependency>
-       
   </dependencies>
-  
 </project>
