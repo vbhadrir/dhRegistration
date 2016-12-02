@@ -89,8 +89,14 @@ public class DhRegistration
 	 private String getNotificationServiceEndPoint()
 	 {
 	   String endPoint = null;
-	   String host = "172.30.18.204";
-	   String port = "8080";	   
+	   //String host = "172.30.18.204";
+	   //String port = "8080";
+		 
+	   // specific code for OpenShift endpoint discovery using env vars	 
+	   // read system environment variables to obtain host:port endpoint
+	   // for the notification-dreamhome service	 
+	   String host = System.getenv("NOTIFICATION_SERVICE_HOST");
+	   String port = System.getenv("NOTIFICATION_SERVICE_PORT");	 
 	   
            endPoint = "http://" + host + ":" + port + "/notify"; 		   
 		 
