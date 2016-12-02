@@ -90,6 +90,8 @@ public class DhRegistration
 	 }
  	 
 	 // obtains the base url for the registration-dreamhome service
+ 	 // final url looks like this:
+ 	 //   http://host:port/notify
 	 // this registration-dreamhome service calls the notification-dreamhome service
 	 private String getNotificationServiceEndPoint()
 	 {
