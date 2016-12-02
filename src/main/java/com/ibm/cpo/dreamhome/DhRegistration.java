@@ -12,7 +12,7 @@ public class DhRegistration
 {
 	 // Add new registration record for the registrationId passed over the HTTP URL
 	 @javax.ws.rs.POST 
-	 @Path("/{cid:[0-9]*}/{aid:[0-9]*}")
+	 @Path("/{cid:[0-9]*}/{aid:[0-9]*}") // clientId and agentId, numeric 0-9 only data
 	 public Response updateRegistrationRecord(@PathParam("cid") String cid, @PathParam("aid") String aid) 
 	 {
 		 // get the input parameters
@@ -20,65 +20,14 @@ public class DhRegistration
 		 Integer agentId  = Integer.valueOf(aid);
 		 
 		 // send a notification by calling the dhNotification REST service.
-		 Response res     = sendNotification(clientId, agentId);
+		 Response res = sendNotification(clientId, agentId);
 		 
 		 return res;
 	 }
-/* 
-  // Get registration record for the registrationId passed over the HTTP URL
-  @javax.ws.rs.GET
-  @Path("/{nid:[0-9]*}")
-  public String getRegistrationRecord(@PathParam("nid") String nid) 
-  {
-	return "Get Registration ("+nid+")";
-  }
-	
-  // Delete registration record for the registrationId passed over the HTTP URL
-  @javax.ws.rs.DELETE
-  public String deleteRegistrationRecord(@PathParam("id") String regId) 
-  {
 
-	return "Delete record (" + regId + ")";
-  }
-
-  // Updates registration record for the registrationId passed over the HTTP URL
-  @javax.ws.rs.PUT
-  public String addRegistrationRecord(@PathParam("id") String regId) 
-  {
-	  // call the REST notification service
-	  
-	  
-	  return "Add record (" + regId + ")";
-  }
-*/  
-
-	 // obtains the base url for the registration-dreamhome service
-	 // this registration-dreamhome service calls the notification-dreamhome service
-	 private String getNotificationServiceEndPoint()
-	 {
-	   String endPoint = null;
-	   		 
-	   // specific code for OpenShift endpoint discovery using env vars	 
-	   // read system environment variables to obtain host:port endpoint
-	   // for the notification-dreamhome service
-	   // Default to using the public external endpoint
-	   String host = "notification-dreamhome.ose.cpo.com";
-	   String port = "80";
-	   // try fetching the more efficient internal end point
-	   String varRead = null;
-	   varRead = System.getenv("NOTIFICATION_SERVICE_HOST");
-	   if(varRead!=null && varRead.length()>0)
-		   host = varRead;
-	   varRead = System.getenv("NOTIFICATION_SERVICE_PORT");	 
-	   if(varRead!=null && varRead.length()>0)
-		   port = varRead;
-	   
-	   // build the endpoint url
-	   // 	http://host:port/notify
-       endPoint = "http://" + host + ":" + port + "/notify"; 		   
-		 
-	   return(endPoint);	 
-	 }	 
+	 //-------------------------------------------------------------------------
+	 // Private methods and code start here
+	 //-------------------------------------------------------------------------
 	 
 	 // invokes the dhNotification REST service
 	 // sends a dh-notification  
@@ -135,4 +84,35 @@ public class DhRegistration
 		 
 		 return(res);
 	 }
+ 	 
+	 // obtains the base url for the registration-dreamhome service
+	 // this registration-dreamhome service calls the notification-dreamhome service
+	 private String getNotificationServiceEndPoint()
+	 {
+	   String endPoint = null;
+	   		
+	   // NOTE: This code will need to be altered for different cloud providers
+	   //
+	   // specific code for OpenShift endpoint discovery using env vars	 
+	   // read system environment variables to obtain host:port endpoint
+	   // for the notification-dreamhome service
+	   // First, default to using the public external endpoint
+	   String host = "notification-dreamhome.ose.cpo.com";
+	   String port = "80";
+	   
+	   // Next, try fetching the more efficient internal end point
+	   String varRead = null;
+	   varRead = System.getenv("NOTIFICATION_SERVICE_HOST");
+	   if(varRead!=null && varRead.length()>0)
+		   host = varRead;
+	   varRead = System.getenv("NOTIFICATION_SERVICE_PORT");	 
+	   if(varRead!=null && varRead.length()>0)
+		   port = varRead;
+	   
+	   // build the endpoint url
+	   // 	http://host:port/notify
+       endPoint = "http://" + host + ":" + port + "/notify"; 		   
+		 
+	   return(endPoint);	 
+	 }	 
 }
