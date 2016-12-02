@@ -111,7 +111,7 @@ public class DhRegistration
 			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
-			conn.setRequestProperty("Host", notificationHostName);
+			//conn.setRequestProperty("Host", notificationHostName);
 			
 			// test for good response code
 			int rc = conn.getResponseCode();
