@@ -66,13 +66,15 @@ public class DhRegistration
 	   String port = "80";
 	   // try fetching the more efficient internal end point
 	   String varRead = null;
-	   varRead = System.getenv("NOTIFICATION_SERVICE_HOST66");
+	   varRead = System.getenv("NOTIFICATION_SERVICE_HOST");
 	   if(varRead!=null && varRead.length()>0)
 		   host = varRead;
-	   varRead = System.getenv("NOTIFICATION_SERVICE_PORT66");	 
+	   varRead = System.getenv("NOTIFICATION_SERVICE_PORT");	 
 	   if(varRead!=null && varRead.length()>0)
 		   port = varRead;
 	   
+	   // build the endpoint url
+	   // 	http://host:port/notify
        endPoint = "http://" + host + ":" + port + "/notify"; 		   
 		 
 	   return(endPoint);	 
