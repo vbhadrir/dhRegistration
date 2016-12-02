@@ -7,6 +7,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
+import javax.inject.Inject;
+import org.apache.deltaspike.core.api.config.ConfigProperty;
+
 //@Path("/Registration")
 @Path("/Registration")
 public class DhRegistration 
@@ -53,17 +56,11 @@ public class DhRegistration
   }
 */  
 
-	 // invokes the dhNotification REST service
-	 // sends a dh-notification  
-/*	
-	 private static final String notificationHostIP   = "10.40.46.194";
-	 private static final String notificationHostName = "notification-dreamhome.ose.cpo.com";
-	 private static final String notificationPort     = "80";	
-	 //private static final String notificationURL      = "http://" + notificationHostName + ":" + notificationPort + "/notify"; 
-	
-	 // OSE private docker cluster address
-	 private static final String notificationURL      = "http://172.30.18.204:8080/notify"; 
-*/	
+	 @Inject
+	 //@ConfigProperty(name = "NOTIFICATION_SERVICE_HOST", defaultValue = "notification-dreamhome.ose.cpo.com")
+	 @ConfigProperty(name = "NOTIFICATION_SERVICE_HOST")
+	 private String _host;
+	 
 	 // obtains the base url for the registration-dreamhome service
 	 // this registration-dreamhome service calls the notification-dreamhome service
 	 private String getNotificationServiceEndPoint()
@@ -78,11 +75,13 @@ public class DhRegistration
 	   String host = System.getenv("NOTIFICATION_SERVICE_HOST");
 	   String port = System.getenv("NOTIFICATION_SERVICE_PORT");	 
 	   
-           endPoint = "http://" + host + ":" + port + "/notify"; 		   
+       endPoint = "http://" + _host + ":" + port + "/notify"; 		   
 		 
 	   return(endPoint);	 
 	 }	 
-	
+	 
+	 // invokes the dhNotification REST service
+	 // sends a dh-notification  
  	 private Response sendNotification(Integer clientId, Integer agentId)
 	 {
 		 Response res = null;
