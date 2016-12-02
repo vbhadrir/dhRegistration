@@ -77,7 +77,8 @@ public class DhRegistration
 	 // sends a dh-notification  
 	 private static final String notificationHostIP   = "10.40.46.194";
 	 private static final String notificationHostName = "notification-dreamhome.ose.cpo.com";
-	 private static final String notificationURL      = "http://" + notificationHostName + "/notify"; 
+	 private static final String notificationPort     = "80";	
+	 private static final String notificationURL      = "http://" + notificationHostName + ":" + notificationPort + "/notify"; 
  	 private Response sendNotification(Integer clientId, Integer agentId)
 	 {
 		 Response res = null;
