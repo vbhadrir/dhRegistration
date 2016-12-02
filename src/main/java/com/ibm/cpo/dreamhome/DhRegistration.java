@@ -56,26 +56,26 @@ public class DhRegistration
   }
 */  
 
-	 @Inject
-	 //@ConfigProperty(name = "NOTIFICATION_SERVICE_HOST", defaultValue = "notification-dreamhome.ose.cpo.com")
-	 @ConfigProperty(name = "NOTIFICATION_SERVICE_HOST")
-	 private String _host;
-	 
 	 // obtains the base url for the registration-dreamhome service
 	 // this registration-dreamhome service calls the notification-dreamhome service
 	 private String getNotificationServiceEndPoint()
 	 {
 	   String endPoint = null;
-	   //String host = "172.30.18.204";
-	   //String port = "8080";
-		 
+	   		 
 	   // specific code for OpenShift endpoint discovery using env vars	 
 	   // read system environment variables to obtain host:port endpoint
-	   // for the notification-dreamhome service	 
-	   String host = System.getenv("NOTIFICATION_SERVICE_HOST");
-	   String port = System.getenv("NOTIFICATION_SERVICE_PORT");	 
+	   // for the notification-dreamhome service
+	   String host = "0.0.0.0";
+	   String port = "8888";
+	   String varRead = null;
+	   varRead = System.getenv("NOTIFICATION_SERVICE_HOST");
+	   if(varRead!=null && varRead.length()>0)
+		   host = varRead;
+	   varRead = System.getenv("NOTIFICATION_SERVICE_PORT");	 
+	   if(varRead!=null && varRead.length()>0)
+		   port = varRead;
 	   
-       endPoint = "http://" + _host + ":" + port + "/notify"; 		   
+       endPoint = "http://" + host + ":" + port + "/notify"; 		   
 		 
 	   return(endPoint);	 
 	 }	 
