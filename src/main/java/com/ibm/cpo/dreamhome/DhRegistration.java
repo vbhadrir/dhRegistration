@@ -10,6 +10,23 @@ import javax.ws.rs.core.Response;
 @Path("/Registration")
 public class DhRegistration 
 {
+	// Add new registration record for the registrationId passed over the HTTP URL
+	// data will be in JSON format in the body of the request as follows
+	// example body data: { clientId=1001, agentId=1002 }
+	@javax.ws.rs.POST 
+	@Path("/") // clientId and agentId will be sent in the body of the request
+	public Response updateRegistrationRecord() 
+	{
+		// get the input parameters 
+		Integer clientId = 1001;
+		Integer agentId  = 1002;
+			 
+		// send a notification by calling the dhNotification REST service.
+		Response res = sendNotification(clientId, agentId);
+			 
+		return res;
+	}
+		 
 	 // Add new registration record for the registrationId passed over the HTTP URL
 	 @javax.ws.rs.POST 
 	 @Path("/{cid:[0-9]*}/{aid:[0-9]*}") // clientId and agentId, numeric 0-9 only data
