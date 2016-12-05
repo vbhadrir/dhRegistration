@@ -22,11 +22,11 @@ public class DhRegistration
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_JSON})
 	@Path("") // clientId and agentId will be sent in the body of the request
-	public Response updateRegistrationRecord(JSONObject jsonReq) 
+	public Response updateRegistrationRecord() // JSONObject jsonReq) 
 	{
 		// get the input parameters 
-		Integer clientId = (Integer)jsonReq.get("clientId");
-		Integer agentId  = (Integer)jsonReq.get("agentId");
+		Integer clientId = 10; // (Integer)jsonReq.get("clientId");
+		Integer agentId  = 11; // (Integer)jsonReq.get("agentId");
 System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);		
 			 
 		// send a notification by calling the dhNotification REST service.
