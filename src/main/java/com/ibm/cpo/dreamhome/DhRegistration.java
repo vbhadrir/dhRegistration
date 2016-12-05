@@ -22,8 +22,8 @@ public class DhRegistration
 	public Response updateRegistrationRecord(JSONObject jsonReq) 
 	{
 		// get the input parameters 
-		Integer clientId = new Integer( jsonReq.getInt("clientId") );
-		Integer agentId  = new Integer( jsonReq.getInt("agentId") );
+		Integer clientId = (Integer)jsonReq.get("clientId");
+		Integer agentId  = (Integer)jsonReq.get("agentId");
 System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);		
 			 
 		// send a notification by calling the dhNotification REST service.
