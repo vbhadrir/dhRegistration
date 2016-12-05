@@ -16,9 +16,9 @@ public class DhRegistration
 	// Add new registration record for the registrationId passed over the HTTP URL
 	// data will be in JSON format in the body of the request as follows
 	// example body data: { clientId=1001, agentId=1002 }
-	@javax.ws.rs.POST 
+	@javax.ws.rs.POST
+	@Consumes({MediaType.APPLICATION_JSON})
 	@Path("") // clientId and agentId will be sent in the body of the request
-	@Consumes(MediaType.APPLICATION_JSON)
 	public Response updateRegistrationRecord(JSONObject jsonReq) 
 	{
 		// get the input parameters 
