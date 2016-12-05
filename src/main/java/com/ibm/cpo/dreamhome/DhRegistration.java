@@ -14,7 +14,7 @@ public class DhRegistration
 	// data will be in JSON format in the body of the request as follows
 	// example body data: { clientId=1001, agentId=1002 }
 	@javax.ws.rs.POST 
-	@Path("/") // clientId and agentId will be sent in the body of the request
+	@Path("") // clientId and agentId will be sent in the body of the request
 	public Response updateRegistrationRecord() 
 	{
 		// get the input parameters 
