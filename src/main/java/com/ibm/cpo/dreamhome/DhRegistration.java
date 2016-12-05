@@ -3,9 +3,12 @@ package com.ibm.cpo.dreamhome;
 import java.io.*;
 import java.net.*;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import org.json.JSONObject;
 
 @Path("/Registration")
 public class DhRegistration 
@@ -15,11 +18,12 @@ public class DhRegistration
 	// example body data: { clientId=1001, agentId=1002 }
 	@javax.ws.rs.POST 
 	@Path("") // clientId and agentId will be sent in the body of the request
-	public Response updateRegistrationRecord() 
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updateRegistrationRecord(JSONObject jsonReq) 
 	{
 		// get the input parameters 
-		Integer clientId = 1001;
-		Integer agentId  = 1002;
+		Integer clientId = jsonReq.getInt("clientId");
+		Integer agentId  = jsonReq.getInt("agentId");
 			 
 		// send a notification by calling the dhNotification REST service.
 		Response res = sendNotification(clientId, agentId);
