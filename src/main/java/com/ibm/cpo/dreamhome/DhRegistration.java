@@ -4,10 +4,12 @@ import java.io.*;
 import java.net.*;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
@@ -22,8 +24,10 @@ public class DhRegistration
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_JSON})
 	@Path("") // clientId and agentId will be sent in the body of the request
-	public Response updateRegistrationRecord() // JSONObject jsonReq) 
+	public Response updateRegistrationRecord(@HeaderParam("token") String token) // JSONObject jsonReq) 
 	{
+		System.out.println("DEBUG: token=" + token );
+				
 		// get the input parameters 
 		Integer clientId = 10; // (Integer)jsonReq.get("clientId");
 		Integer agentId  = 11; // (Integer)jsonReq.get("agentId");
