@@ -37,6 +37,7 @@ System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);
 		 
 	 // Add new registration record for the registrationId passed over the HTTP URL
 	 @javax.ws.rs.POST 
+	 @Produces({MediaType.APPLICATION_JSON})
 	 @Path("/{cid:[0-9]*}/{aid:[0-9]*}") // clientId and agentId, numeric 0-9 only data
 	 public Response updateRegistrationRecord(@PathParam("cid") String cid, @PathParam("aid") String aid) 
 	 {
