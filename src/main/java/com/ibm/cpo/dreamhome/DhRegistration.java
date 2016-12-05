@@ -23,7 +23,8 @@ public class DhRegistration
 	{
 		// get the input parameters 
 		Integer clientId = new Integer( jsonReq.getInt("clientId") );
-		Integer agentId  = new Integer( jsonReq.getInt("agentId") ); 
+		Integer agentId  = new Integer( jsonReq.getInt("agentId") );
+System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);		
 			 
 		// send a notification by calling the dhNotification REST service.
 		Response res = sendNotification(clientId, agentId);
