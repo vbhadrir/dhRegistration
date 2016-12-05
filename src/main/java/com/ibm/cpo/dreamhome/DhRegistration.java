@@ -6,8 +6,10 @@ import java.net.*;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import org.json.JSONObject;
 
 @Path("/Registration")
@@ -18,6 +20,7 @@ public class DhRegistration
 	// example body data: { clientId=1001, agentId=1002 }
 	@javax.ws.rs.POST
 	@Consumes({MediaType.APPLICATION_JSON})
+	@Produces({MediaType.APPLICATION_JSON})
 	@Path("") // clientId and agentId will be sent in the body of the request
 	public Response updateRegistrationRecord(JSONObject jsonReq) 
 	{
