@@ -26,9 +26,11 @@ public class DhRegistration
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_JSON})
 	@Path("") // clientId and agentId will be sent in the body of the request
-	public Response updateRegistrationRecord(@QueryParam("token") String token) // JSONObject jsonReq) 
+//	public Response updateRegistrationRecord(@QueryParam("") String token) // JSONObject jsonReq)
+	public Response updateRegistrationRecord( JSONObject jsonReq) 
+
 	{
-		System.out.println("DEBUG: token=" + token );
+		System.out.println("DEBUG: jsonReq=" + jsonReq );
 				
 		// get the input parameters 
 		Integer clientId = 10; // (Integer)jsonReq.get("clientId");
