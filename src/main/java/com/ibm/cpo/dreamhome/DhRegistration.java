@@ -21,7 +21,7 @@ public class DhRegistration
 	@Produces({MediaType.APPLICATION_JSON})
 	@Path("") // clientId and agentId will be sent in the body of the request
 //	public Response updateRegistrationRecord(@QueryParam("") String token) // JSONObject jsonReq)
-	public Response updateRegistrationRecord( final dhRegDataRec input) 
+	public Response updateRegistrationRecord( dhRegDataRec input) 
 	{
 		System.out.println("DEBUG: input=" + input );
 				
