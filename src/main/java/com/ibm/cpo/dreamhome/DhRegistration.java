@@ -24,16 +24,28 @@ public class DhRegistration
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response updateRegistrationRecord( String reqBody )
 	{
-		// convert the request body string into a JSON object
-		JSONObject json = new JSONObject(reqBody);
+		Response res 		= null;
+		Integer clientId 	= null;
+		Integer agentId  	= null;
+		
+		try
+		{
+			// convert the request body string into a JSON object
+			JSONObject json = new JSONObject(reqBody);
 					
-		// get the input parameters from the json  
-		Integer clientId = Integer.valueOf( json.getInt("clientId") ); 
-		Integer agentId  = Integer.valueOf( json.getInt("agentId") ); 
-System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);		
+			// get the input parameters from the json  
+			clientId = Integer.valueOf( json.getInt("clientId") ); 
+			agentId  = Integer.valueOf( json.getInt("agentId") ); 
+System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);
+		}
+		catch( Exception e )
+		{ // json parsing has failed! Bad json data in the request's body
+			res = Response.ok("Invalid json! valid format is: { clientId:1002, agentId:1003 }").build();
+			
+		}
 			 
 		// send a notification by calling the dhNotification REST service.
-		Response res = sendNotification(clientId, agentId);
+		res = sendNotification(clientId, agentId);
 			 
 		return res;
 	}
