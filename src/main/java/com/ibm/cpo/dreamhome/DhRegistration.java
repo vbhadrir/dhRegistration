@@ -17,10 +17,10 @@ public class DhRegistration
 	// data will be in JSON format in the body of the request as follows
 	// example body data: { clientId=1001, agentId=1002 }
 	@javax.ws.rs.POST
-	@Consumes({MediaType.APPLICATION_JSON})
-	@Produces({MediaType.APPLICATION_JSON})
 	@Path("") // clientId and agentId will be sent in the body of the request
-//	public Response updateRegistrationRecord(@QueryParam("") String token) // JSONObject jsonReq)
+	@Consumes({MediaType.APPLICATION_JSON})
+	//@Produces({MediaType.APPLICATION_JSON})
+	//	public Response updateRegistrationRecord(@QueryParam("") String token) // JSONObject jsonReq)
 	public Response updateRegistrationRecord( dhRegDataRec input) 
 	{
 		System.out.println("DEBUG: input=" + input );
