@@ -1,10 +1,37 @@
 package com.ibm.cpo.dreamhome;
 
-import javax.xml.bind.annotation.*;
-
-@XmlRootElement
 public class dhRegDataRec 
 {
-    @XmlElement public String clientId;
-    @XmlElement public String agentId;
+    String clientId;
+    String agentId;
+    
+    public String getClientId()
+    {
+    	return(this.clientId);
+    }
+    
+    public String getAgentId()
+    {
+    	return(this.agentId);
+    }
+    
+    public void setClientId(String id)
+    {
+    	this.clientId = id;
+    	
+    	return;
+    }
+    
+    public void setAgentId(String id)
+    {
+    	this.agentId = id;
+    	
+    	return;
+    }
+    
+    @Override
+	public String toString() 
+    {
+		return "RegDataRec [clientid=" + this.clientId + ", agentId=" + this.agentId + "]";
+	}
 }
