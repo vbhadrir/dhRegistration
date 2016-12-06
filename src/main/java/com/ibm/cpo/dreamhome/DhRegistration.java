@@ -17,17 +17,13 @@ public class DhRegistration
 {
 	// Add new registration record for the registrationId passed over the HTTP URL
 	// data will be in JSON format in the body of the request as follows
-	// example body data: { clientId=1001, agentId=1002 }
+	// example body data: { clientId:1002, agentId:1003 }
 	@javax.ws.rs.POST
 	@Path("") // clientId and agentId will be sent in the body of the request
 	@Consumes({MediaType.APPLICATION_JSON})
-	//@Produces({MediaType.APPLICATION_JSON})
-	//	public Response updateRegistrationRecord(@QueryParam("") String token) // JSONObject jsonReq)
-	// public Response updateRegistrationRecord( dhRegDataRec input)
+	@Produces({MediaType.APPLICATION_JSON})
 	public Response updateRegistrationRecord( String reqBody )
 	{
-System.out.println("DEBUG: input=" + reqBody );
-		
 		// convert the request body string into a JSON object
 		JSONObject json = new JSONObject(reqBody);
 					
