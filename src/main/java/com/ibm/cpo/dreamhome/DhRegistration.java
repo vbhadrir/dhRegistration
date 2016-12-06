@@ -37,16 +37,16 @@ public class DhRegistration
 			clientId = Integer.valueOf( json.getInt("clientId") ); 
 			agentId  = Integer.valueOf( json.getInt("agentId") ); 
 System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);
+
+			// send a notification by calling the dhNotification REST service.
+			res = sendNotification(clientId, agentId);
 		}
 		catch( Exception e )
 		{ // json parsing has failed! Bad json data in the request's body
 			res = Response.ok("Invalid json! valid format is: { clientId:1002, agentId:1003 }").build();
 			
 		}
-			 
-		// send a notification by calling the dhNotification REST service.
-		res = sendNotification(clientId, agentId);
-			 
+		 
 		return res;
 	}
 		 
