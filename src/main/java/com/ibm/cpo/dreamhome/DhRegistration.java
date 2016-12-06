@@ -21,7 +21,8 @@ public class DhRegistration
 	@Consumes({MediaType.APPLICATION_JSON})
 	//@Produces({MediaType.APPLICATION_JSON})
 	//	public Response updateRegistrationRecord(@QueryParam("") String token) // JSONObject jsonReq)
-	public Response updateRegistrationRecord( dhRegDataRec input) 
+	// public Response updateRegistrationRecord( dhRegDataRec input)
+	public Response updateRegistrationRecord( String input)
 	{
 		System.out.println("DEBUG: input=" + input );
 				
