@@ -30,13 +30,10 @@ System.out.println("DEBUG: input=" + reqBody );
 		
 		// convert the request body into JSON object
 		JSONObject json = new JSONObject(reqBody);
-		
-System.out.println("DEBUG: clientId=" + json.getString("clientId") );
-		
-				
+					
 		// get the input parameters 
-		Integer clientId = 10; // (Integer)jsonReq.get("clientId");
-		Integer agentId  = 11; // (Integer)jsonReq.get("agentId");
+		Integer clientId = Integer.valueOf( json.getInt("clientId") ); 
+		Integer agentId  = Integer.valueOf( json.getInt("agentId") ); 
 System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);		
 			 
 		// send a notification by calling the dhNotification REST service.
