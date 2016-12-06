@@ -10,6 +10,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.json.JSONObject;
+
 @Path("/Registration")
 public class DhRegistration 
 {
@@ -22,9 +24,15 @@ public class DhRegistration
 	//@Produces({MediaType.APPLICATION_JSON})
 	//	public Response updateRegistrationRecord(@QueryParam("") String token) // JSONObject jsonReq)
 	// public Response updateRegistrationRecord( dhRegDataRec input)
-	public Response updateRegistrationRecord( String input)
+	public Response updateRegistrationRecord( String reqBody )
 	{
-		System.out.println("DEBUG: input=" + input );
+System.out.println("DEBUG: input=" + reqBody );
+		
+		// convert the request body into JSON object
+		JSONObject json = new JSONObject(reqBody);
+		
+System.out.println("DEBUG: clientId=" + json.getString("clientId") );
+		
 				
 		// get the input parameters 
 		Integer clientId = 10; // (Integer)jsonReq.get("clientId");
