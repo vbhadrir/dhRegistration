@@ -27,7 +27,7 @@ public class DhRegistration
 		// convert the request body string into a JSON object
 		JSONObject json = new JSONObject(reqBody);
 					
-		// get the input parameters 
+		// get the input parameters from the json  
 		Integer clientId = Integer.valueOf( json.getInt("clientId") ); 
 		Integer agentId  = Integer.valueOf( json.getInt("agentId") ); 
 System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);		
