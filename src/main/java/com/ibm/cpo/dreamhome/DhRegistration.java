@@ -28,7 +28,7 @@ public class DhRegistration
 	{
 System.out.println("DEBUG: input=" + reqBody );
 		
-		// convert the request body into JSON object
+		// convert the request body string into a JSON object
 		JSONObject json = new JSONObject(reqBody);
 					
 		// get the input parameters 
