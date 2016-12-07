@@ -43,7 +43,7 @@ System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);
 		}
 		catch( Exception e )
 		{ // json parsing has failed! Bad json data in the request's body
-			res = Response.ok("Invalid json! valid format is: { clientId:1002, agentId:1003 }").build();
+			res = Response.ok("Invalid json! valid format is: { clientId:1002, agentId:1003 }").status(401).build();
 		}
 		 
 		return res;
