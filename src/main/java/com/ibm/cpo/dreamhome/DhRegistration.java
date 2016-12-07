@@ -36,14 +36,14 @@ public class DhRegistration
 			// get the input parameters from the json  
 			clientId = Integer.valueOf( json.getInt("clientId") ); 
 			agentId  = Integer.valueOf( json.getInt("agentId") ); 
-System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);
+			//System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);
 
 			// send a notification by calling the dhNotification REST service.
 			res = sendNotification(clientId, agentId);
 		}
 		catch( Exception e )
-		{ // json parsing has failed! Bad json data in the request's body
-			res = Response.ok("Invalid json! valid format is: { clientId:1002, agentId:1003 }").status(401).build();
+		{ // json parsing has failed! Bad json data in the request's body or the body is empty
+			res = Response.ok("Invalid json! valid format is: { clientId:1002, agentId:1003 }").status(400).build();
 		}
 		 
 		return res;
@@ -79,7 +79,7 @@ System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);
 		 {
 			String notificationURL = getNotificationServiceEndPoint(); 
 			String urlName = notificationURL + "?clientId=" + clientId + "&agentId=" + agentId;
-			System.out.println("urlName = " + urlName);
+			//System.out.println("urlName = " + urlName);
 			
 			URL url = new URL(urlName);
 			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
@@ -109,7 +109,7 @@ System.out.println("DEBUG: cid=" + clientId + " aid=" + agentId);
 				conn.disconnect();
 				conn = null;
 				
-				System.out.println("ReplyData = " + replyData );
+				//System.out.println("ReplyData = " + replyData );
 				
 				// create the Response object
 				res = Response.ok(replyData).build();
