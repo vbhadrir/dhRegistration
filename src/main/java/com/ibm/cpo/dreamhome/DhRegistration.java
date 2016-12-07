@@ -43,7 +43,7 @@ public class DhRegistration
 		}
 		catch( Exception e )
 		{ // json parsing has failed! Bad json data in the request's body or the body is empty
-			res = Response.ok("Invalid json! valid format is: { clientId:1002, agentId:1003 }").status(400).build();
+			res = Response.ok("Invalid json in request BODY! valid format is: { clientId:1002, agentId:1003 }").status(400).build();
 		}
 		 
 		return res;
