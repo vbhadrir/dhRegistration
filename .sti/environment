@@ -1,1 +1,1 @@
-dhNotificationService=http://host:port/notify
+dhNotificationService=http://$NOTIFICATION_SERVICE_HOST:$NOTIFICATION_SERVICE_PORT/notify
