@@ -49,6 +49,7 @@
       <groupId>org.glassfish.jersey.bundles</groupId>
       <artifactId>jaxrs-ri</artifactId>
       <version>2.13</version>
+      <scope>provided</scope>
     </dependency>
     
     <!-- https://mvnrepository.com/artifact/org.json/json -->
@@ -56,6 +57,7 @@
     	<groupId>org.json</groupId>
     	<artifactId>json</artifactId>
     	<version>20160810</version>
+    	<scope>provided</scope>
 	</dependency>
   </dependencies>
   
