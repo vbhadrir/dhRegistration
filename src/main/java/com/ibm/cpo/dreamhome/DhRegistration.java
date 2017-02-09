@@ -145,9 +145,10 @@ public class DhRegistration
 	   // read system environment variables to obtain host:port endpoint
 	   // for the notification-dreamhome service
 	   // First, default to using the public external endpoint
-	   String host = "notification-dreamhome.ose.cpo.com";
-	   String port = "80";
-	   
+	   //String host = "notification-dreamhome.ose.cpo.com";
+ 	   String host = "40.121.206.56"
+	   //String port = "80";
+	   String port = "8082";
 	   // Next, try fetching the more efficient internal end point
 	   String varRead = null;
 	   varRead = System.getenv("NOTIFICATION_SERVICE_HOST");
@@ -160,7 +161,6 @@ public class DhRegistration
 	   // build the endpoint url
 	   // 	http://host:port/notify
        endPoint = "http://" + host + ":" + port + "/notify"; 		   
-		 
-	   return(endPoint);	 
+	   return(endPoint);
 	 }	 
 }
