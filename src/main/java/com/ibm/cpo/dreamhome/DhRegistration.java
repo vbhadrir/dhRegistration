@@ -160,7 +160,8 @@ public class DhRegistration
 	   
 	   // build the endpoint url
 	   // 	http://host:port/notify
-       endPoint = "http://" + host + ":" + port + "/notify"; 		   
+      // endPoint = "http://" + host + ":" + port + "/notify"; 	
+        endPoint = "http://13.90.157.188:8082/notify";
 	   return(endPoint);
 	 }	 
 }
