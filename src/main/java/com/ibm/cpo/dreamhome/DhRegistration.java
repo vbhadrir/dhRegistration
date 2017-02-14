@@ -146,7 +146,7 @@ public class DhRegistration
 	   // for the notification-dreamhome service
 	   // First, default to using the public external endpoint
 	   //String host = "notification-dreamhome.ose.cpo.com";
- 	   String host = "13.90.157.188";
+ 	   String host = "40.76.195.232";
 	   //String port = "80";
 	   String port = "8082";
 	   // Next, try fetching the more efficient internal end point
@@ -161,7 +161,7 @@ public class DhRegistration
 	   // build the endpoint url
 	   // 	http://host:port/notify
       // endPoint = "http://" + host + ":" + port + "/notify"; 	
-        endPoint = "http://13.90.157.188:8082/notify";
+        endPoint = "http://40.76.195.232:8082/notify";
 	   return(endPoint);
 	 }	 
 }
